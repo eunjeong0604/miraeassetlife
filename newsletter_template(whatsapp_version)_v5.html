@@ -119,10 +119,9 @@
     <div class="container">
         <div class="header">
             <h1>Weekly News Summary Bot</h1>
-            <img src="https://cdn-icons-png.flaticon.com/512/5685/5685216.png" alt="뉴스레터 아이콘">
-            </div>
+        </div>
         <div class="date">
-            {{ current_date }} | 디지털신사업팀
+            {{ current_date }} 
         </div>
         <div class="info">
             GPT를 이용하여 디지털관련 주요 뉴스를 선별하고 요약한 결과예요.<br>
@@ -145,34 +144,6 @@
 
             {{ news_content }}
         </div>
-
-        <!-- 버튼 클릭 시 전체 본문 클립보드에 복사 -->
-        <button class="icon-button" onclick="copyEntireBody()">
-            <img src="https://cdn-icons-png.flaticon.com/128/1975/1975273.png" alt="클립보드 아이콘" width="16" height="16">
-        </button>
-        <!-- 결과 메시지 -->
-        <p id="message"></p>
-        <script>
-            function copyEntireBody() {
-                // 전체 본문의 텍스트 가져오기
-                var text = document.querySelector('.container').innerText; // container 내부의 텍스트만 복사
-
-                // 클립보드에 텍스트 쓰기
-                var textArea = document.createElement("textarea");
-                textArea.value = text;
-                document.body.appendChild(textArea);
-                textArea.focus();
-                textArea.select();
-                try {
-                    var successful = document.execCommand('copy');
-                    var msg = successful ? '전체 본문이 복사되었습니다!' : '복사에 실패했습니다!';
-                    document.getElementById("message").innerText = msg;
-                } catch (err) {
-                    document.getElementById("message").innerText = "본문 복사에 실패했습니다: " + err;
-                }
-                document.body.removeChild(textArea);
-            }
-        </script>
 
 
         <div class="footer">

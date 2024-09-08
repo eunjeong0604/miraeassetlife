@@ -7,7 +7,7 @@ on:
     branches: [main]
   schedule:
     # 매일 아침 9시 UTC에 실행 (UTC를 기준으로 하므로 지역에 맞게 조정 필요)
-    - cron: '50 2 * * *' 
+    - cron: '00 3 * * *' 
 
 jobs:
   send_email:
@@ -15,10 +15,10 @@ jobs:
 
     steps:
     - name: Checkout repository
-      uses: actions/checkout@v4
+      uses: actions/checkout@v2
 
     - name: Set up Python
-      uses: actions/setup-python@v4
+      uses: actions/setup-python@v2
       with:
         python-version: '3.9'
 
@@ -28,13 +28,13 @@ jobs:
         pip install -r requirements.txt
 
     - name: Run script to send email
+      run: python ins_dx_newsletter_v2.1.py
       env:
          OPENAI_API_KEY: ${{secrets.OPENAI_API_KEY}}
          CLIENT_ID: ${{secrets.CLIENT_ID}}
          CLIENT_SECRET: ${{secrets.CLIENT_SECRET}}
          EMAIL_ID: ${{secrets.EMAIL_ID}}
          EMAIL_PW: ${{secrets.EMAIL_PW}}
-      run: python ins_dx_newsletter_v2.1.py
 
 
     - name: commits

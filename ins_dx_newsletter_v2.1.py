@@ -47,8 +47,8 @@ from email.mime.text import MIMEText
 
 
 # SSL인증서 Error) httpx verify=False 설정
-import httpx
-http_client = httpx.Client(verify = False)
+# import httpx
+# http_client = httpx.Client(verify = False)
 
 
 ####################################################

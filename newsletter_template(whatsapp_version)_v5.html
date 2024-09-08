@@ -1,0 +1,184 @@
+
+<html lang="ko"><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEWS SUMMARY BOT</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;700&display=swap');
+
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff; /* 전체 배경 흰색 */
+            color: #333;
+            font-size: 0.8em; /* 글자 크기 20% 줄이기 */
+        }
+        .container {
+            width: 100%;
+            max-width: 600px;
+            margin: 0 auto;
+            background-color: #f9f5ef; /* 뉴스레터 배경 연한 베이지 색 */
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .header img {
+            width: 100px;
+        }
+        .date {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .main-news {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .sub-news {
+            margin-bottom: 20px;
+        }
+        .footer {
+            text-align: center;
+            font-size: 0.9em;
+            color: #888;
+        }
+        h1, h2, h3 {
+            font-weight: 700;
+            color: #555;
+        }
+        h2 {
+            font-size: 1.4em; /* 본문 제목 글씨 크기 약간 키우기 */
+        }
+        ul {
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 10px;
+        }
+        .news-title {
+            font-weight: bold;
+            font-size: 1.1em; /* 본문 제목 글씨 크기 약간 키우기 */
+            color: #333;
+        }
+        .divider {
+            margin: 40px 0;
+            text-align: center;
+            font-size: 1.2em;
+            color: #f39c12; /* 주황색 */
+        }
+        .news-summary {
+            font-size: 0.9em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .news-date {
+            font-size: 14px;
+            color: #333;
+        }.info {
+            font-size: 11px;
+            color: #888;
+            text-align: center;
+        }
+         .icon-button {
+            position: relative;
+            bottom: 1px; /* 화면 하단에서의 거리 */
+            right: 10px; /* 화면 우측에서의 거리 */
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px; /* 아이콘 버튼의 너비 */
+            height: 40px; /* 아이콘 버튼의 높이 */
+            background-color: #f9f5ef; /* 버튼 배경색 */
+            border-radius: 50%; /* 둥근 모서리 */
+            border: none; /* 테두리 제거 */
+            cursor: pointer; /* 커서 변경 */
+            padding: 0; /* 패딩 제거 */
+            transition: background-color 0.3s ease; /* 배경색 변경 효과 */
+        }
+
+        .icon-button img {
+            width: 24px; /* 아이콘 크기 */
+            height: 24px; /* 아이콘 크기 */
+        }
+
+        .icon-button:hover {
+            background-color: #FFBF00; /* 마우스 오버 시 배경색 */
+        }
+
+        .icon-button:focus {
+            outline: none; /* 포커스 시 기본 윤곽선 제거 */
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Weekly News Summary Bot</h1>
+            <img src="https://cdn-icons-png.flaticon.com/512/5685/5685216.png" alt="뉴스레터 아이콘">
+            </div>
+        <div class="date">
+            {{ current_date }} | 디지털신사업팀
+        </div>
+        <div class="info">
+            GPT를 이용하여 디지털관련 주요 뉴스를 선별하고 요약한 결과예요.<br>
+
+        </div>
+		<div class="divider">
+            ____________________________
+        </div>
+        <div class="main-news">
+            <h2>● 지난주 핵심 뉴스 미리보기</h2>
+            <ul>
+                {{ news_summary }}
+            </ul>
+        </div>
+        <div class="divider">
+            ____________________________
+        </div>
+        <div class="main-news">
+            <h2>● 지난주 DX Market Intelligence</h2>
+
+            {{ news_content }}
+        </div>
+
+        <!-- 버튼 클릭 시 전체 본문 클립보드에 복사 -->
+        <button class="icon-button" onclick="copyEntireBody()">
+            <img src="https://cdn-icons-png.flaticon.com/128/1975/1975273.png" alt="클립보드 아이콘" width="16" height="16">
+        </button>
+        <!-- 결과 메시지 -->
+        <p id="message"></p>
+        <script>
+            function copyEntireBody() {
+                // 전체 본문의 텍스트 가져오기
+                var text = document.querySelector('.container').innerText; // container 내부의 텍스트만 복사
+
+                // 클립보드에 텍스트 쓰기
+                var textArea = document.createElement("textarea");
+                textArea.value = text;
+                document.body.appendChild(textArea);
+                textArea.focus();
+                textArea.select();
+                try {
+                    var successful = document.execCommand('copy');
+                    var msg = successful ? '전체 본문이 복사되었습니다!' : '복사에 실패했습니다!';
+                    document.getElementById("message").innerText = msg;
+                } catch (err) {
+                    document.getElementById("message").innerText = "본문 복사에 실패했습니다: " + err;
+                }
+                document.body.removeChild(textArea);
+            }
+        </script>
+
+
+        <div class="footer">
+            © 2024 MIRAEASSET INSURANCE. All rights reserved.
+        </div>
+    </div>
+
+
+</body></html>

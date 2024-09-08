@@ -544,8 +544,8 @@ if __name__ == "__main__":
   client_id = os.getenv("CLIENT_ID")
   client_secret = os.getenv("CLIENT_SECRET")
   # GPT API Key
-  os.environ["OPENAI_API_KEY"] = config['DEFAULT']['openai_api_key']
-
+  os.environ["OPENAI_API_KEY"] = os.getenv("OPENAI_API_KEY")
+  
   # Input 값 설정
   query = '보험 +AI' # 검색키워드 (+의 앞은 띄고 뒤는 붙여야 AI를 포함한 검색결과 도출)
   n = 400 # n*10개의 기사추출

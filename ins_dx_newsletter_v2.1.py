@@ -541,7 +541,7 @@ if __name__ == "__main__":
 
   ## API Key 설정
   # 네이버 API 인증 정보 / malife 아이디 활용
-  client_id = config['DEFAULT']['client_id']
+  client_id = os.getenv("CLIENT_ID", config['DEFAULT']['client_id'])
   client_secret = os.getenv("CLIENT_SECRET", config['DEFAULT']['client_secret'])
   # GPT API Key
   os.environ["OPENAI_API_KEY"] = config['DEFAULT']['openai_api_key']

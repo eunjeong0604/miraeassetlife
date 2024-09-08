@@ -541,10 +541,10 @@ if __name__ == "__main__":
 
   ## API Key 설정
   # 네이버 API 인증 정보 / malife 아이디 활용
-  client_id = os.getenv("CLIENT_ID", config['DEFAULT']['CLIENT_ID'])
-  client_secret = os.getenv("CLIENT_SECRET", config['DEFAULT']['CLIENT_SECRET'])
+  client_id = os.getenv("CLIENT_ID", config['DEFAULT']['client_id'])
+  client_secret = os.getenv("CLIENT_SECRET", config['DEFAULT']['client_secret'])
   # GPT API Key
-  os.environ["OPENAI_API_KEY"] = config['DEFAULT']['OPENAI_API_KEY']
+  os.environ["OPENAI_API_KEY"] = config['DEFAULT']['openai_api_key']
 
   # Input 값 설정
   query = '보험 +AI' # 검색키워드 (+의 앞은 띄고 뒤는 붙여야 AI를 포함한 검색결과 도출)

@@ -30,11 +30,11 @@ jobs:
     - name: Run script to send email
       run: python ins_dx_newsletter_v2.1.py
       env:
-             OPENAI_API_KEY: ${{secrets.OPENAI_API_KEY}}
-             CLIENT_ID: ${{secrets.CLIENT_ID}}
-             CLIENT_SECRET: ${{secrets.CLIENT_SECRET}}
-             EMAIL_ID: ${{secrets.EMAIL_ID}}
-             EMAIL_PW: ${{secrets.EMAIL_PW}}
+         OPENAI_API_KEY: ${{secrets.OPENAI_API_KEY}}
+         CLIENT_ID: ${{secrets.CLIENT_ID}}
+         CLIENT_SECRET: ${{secrets.CLIENT_SECRET}}
+         EMAIL_ID: ${{secrets.EMAIL_ID}}
+         EMAIL_PW: ${{secrets.EMAIL_PW}}
 
 
     - name: commits

@@ -1,0 +1,126 @@
+<style>
+    /* 글꼴 가중치 추가 (300 추가) */
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
+
+    /* CSS 변수 추가로 일관된 색상 관리 */
+    :root {
+        --primary-color: #4a90e2;
+        --background-color: #f8f9fa;
+        --text-color: #333;
+        --secondary-color: #6c757d;
+    }
+
+    body {
+        font-family: 'Noto Sans KR', sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: var(--background-color); /* 배경색 변경 */
+        color: var(--text-color);
+        font-size: 16px; /* 기본 글자 크기 조정 */
+        line-height: 1.6; /* 행간 추가 */
+    }
+
+    .container {
+        width: 100%;
+        max-width: 600px;
+        margin: 0 auto;
+        background-color: #ffffff; /* 컨테이너 배경색 변경 */
+        padding: 30px; /* 패딩 증가 */
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.05); /* 그림자 효과 개선 */
+    }
+
+    .header {
+        text-align: center;
+        margin-bottom: 30px; /* 여백 증가 */
+    }
+
+    /* 헤더 제목 스타일 추가 */
+    .header h1 {
+        color: var(--primary-color);
+        font-size: 2em;
+        margin-bottom: 10px;
+    }
+
+    .date {
+        text-align: center;
+        color: var(--secondary-color); /* 색상 변경 */
+        margin-bottom: 30px; /* 여백 증가 */
+        font-size: 0.9em; /* 글자 크기 조정 */
+    }
+
+    .main-news, .sub-news {
+        margin-bottom: 30px; /* 여백 증가 */
+    }
+
+    h2 {
+        font-size: 1.5em;
+        color: var(--primary-color); /* 색상 변경 */
+        margin-bottom: 20px;
+        border-bottom: 2px solid var(--primary-color); /* 밑줄 추가 */
+        padding-bottom: 10px;
+    }
+
+    ul {
+        padding-left: 20px;
+    }
+
+    li {
+        margin-bottom: 15px; /* 여백 증가 */
+    }
+
+    .news-title {
+        font-weight: 700;
+        font-size: 1.1em;
+        color: var(--text-color);
+        margin-bottom: 5px; /* 여백 추가 */
+    }
+
+    .divider {
+        margin: 40px 0;
+        text-align: center;
+        font-size: 1.2em;
+        color: var(--primary-color); /* 색상 변경 */
+    }
+
+    .news-summary {
+        font-size: 0.95em;
+        margin-bottom: 20px;
+        color: var(--text-color);
+    }
+
+    .news-date {
+        font-size: 0.85em;
+        color: var(--secondary-color); /* 색상 변경 */
+    }
+
+    .info {
+        font-size: 0.8em;
+        color: var(--secondary-color); /* 색상 변경 */
+        text-align: center;
+        margin-bottom: 30px; /* 여백 추가 */
+    }
+
+    .footer {
+        text-align: center;
+        font-size: 0.8em;
+        color: var(--secondary-color); /* 색상 변경 */
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid #eee; /* 상단 구분선 추가 */
+    }
+
+    /* 반응형 디자인 개선 */
+    @media (max-width: 600px) {
+        .container {
+            padding: 20px;
+        }
+
+        h2 {
+            font-size: 1.3em;
+        }
+
+        .news-title {
+            font-size: 1em;
+        }
+    }
+</style>

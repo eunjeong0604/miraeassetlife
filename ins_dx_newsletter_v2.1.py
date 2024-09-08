@@ -77,7 +77,7 @@ def load_news(query='보험 +AI', n=100):
   news_list = []
   for start_idx in range(1, n+1, 10):  # 1부터 100까지 10씩 증가
       params['start'] = start_idx
-      response = requests.get(url, headers=headers, params=params, verify=False) #Test환경에서 임시로 SSL 인증서 확인 하지않음
+      response = requests.get(url, headers=headers, params=params)#, verify=False) #Test환경에서 임시로 SSL 인증서 확인 하지않음
 
       # API 응답 확인
       if response.status_code != 200:
@@ -258,7 +258,7 @@ DX, Digital, 디지털혁신, AI, 생성형AI, 클라우드, 마이데이터, �
 [기사 제목] :
 '''
 
-  client = OpenAI(http_client = http_client)
+  client = OpenAI()#http_client = http_client)
   start_time = time.time()
   imp_news_yn = []
   for i in tqdm(range(len(df))):
@@ -349,7 +349,7 @@ def gpt_summary(df):
 뉴스기사:
 '''
 
-  client = OpenAI(http_client = http_client)
+  client = OpenAI()#http_client = http_client)
   start_time = time.time()
   gpt_summary = []
   for i in tqdm(range(len(df))):
@@ -386,7 +386,7 @@ def ranking_imp_news(df):
 너는 1, 2, 3, 4, 5 중에 하나의 숫자를 출력해야해.
 '''
 
-  client = OpenAI(http_client = http_client)
+  client = OpenAI()#http_client = http_client)
   start_time = time.time()
   imp_rank = []
   for i in tqdm(range(len(df))):

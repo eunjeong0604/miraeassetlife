@@ -37,10 +37,10 @@ jobs:
          EMAIL_PW: ${{secrets.EMAIL_PW}}
 
 
-    - name: commits
-      run: |
-        git config --global user.email "mi_digital@naver.com"
-        git config --global user.name "Digital New Business Team"
-        git add newsletter.html
-        git commit -m "뉴스데이터 요약 & 뉴스레터 생성"
+    # - name: commits
+    #   run: |
+    #     git config --global user.email "mi_digital@naver.com"
+    #     git config --global user.name "Digital New Business Team"
+    #     git add newsletter.html
+    #     git commit -m "뉴스데이터 요약 & 뉴스레터 생성"
 

@@ -7,7 +7,7 @@ on:
     branches: [main]
   schedule:
     # 매일 아침 9시 UTC에 실행 (UTC를 기준으로 하므로 지역에 맞게 조정 필요)
-    - cron: '5 0 * * *' 
+    - cron: '10 0 * * *' 
 
 jobs:
   send_email:

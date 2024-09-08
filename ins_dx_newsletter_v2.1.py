@@ -541,10 +541,10 @@ if __name__ == "__main__":
 
   ## API Key 설정
   # 네이버 API 인증 정보 / malife 아이디 활용
-  client_id = os.getenv("CLIENT_ID", config['DEFAULT']['client_id'])
-  client_secret = os.getenv("CLIENT_SECRET", config['DEFAULT']['client_secret'])
+  client_id = os.getenv("CLIENT_ID", config['DEFAULT']['CLIENT_ID'])
+  client_secret = os.getenv("CLIENT_SECRET", config['DEFAULT']['CLIENT_SECRET'])
   # GPT API Key
-  os.environ["OPENAI_API_KEY"] = config['DEFAULT']['openai_api_key']
+  os.environ["OPENAI_API_KEY"] = config['DEFAULT']['OPENAI_API_KEY']
 
   # Input 값 설정
   query = '보험 +AI' # 검색키워드 (+의 앞은 띄고 뒤는 붙여야 AI를 포함한 검색결과 도출)
@@ -578,8 +578,8 @@ if __name__ == "__main__":
 
   # [6] 최종결과 메일로 전송
   generate_newsletter(df_fin) # 뉴스레터 만들기(html)
-  email_id = os.getenv("EMAIL_ID", config['DEFAULT']['email_id']) # 환경 변수 가져오기 (기본값 설정)
-  email_pw = os.getenv("EMAIL_PW", config['DEFAULT']['email_pw'])
+  email_id = os.getenv("EMAIL_ID", config['DEFAULT']['EMAIL_ID']) # 환경 변수 가져오기 (기본값 설정)
+  email_pw = os.getenv("EMAIL_PW", config['DEFAULT']['EMAIL_PW'])
   recipients = read_recipients_from_file('recipients_list.txt')
   subject = f"{datetime.today().strftime('%Y년 %m월 %d일')}의 뉴스레터"
   send_newsletter(email_id, email_pw, recipients, subject) # 뉴스레터 보내기

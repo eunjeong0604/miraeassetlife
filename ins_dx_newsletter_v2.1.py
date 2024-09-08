@@ -578,8 +578,8 @@ if __name__ == "__main__":
 
   # [6] 최종결과 메일로 전송
   generate_newsletter(df_fin) # 뉴스레터 만들기(html)
-  email_id = os.getenv("EMAIL_ID", config['DEFAULT']['EMAIL_ID']) # 환경 변수 가져오기 (기본값 설정)
-  email_pw = os.getenv("EMAIL_PW", config['DEFAULT']['EMAIL_PW'])
+  email_id = os.getenv("EMAIL_ID", config['DEFAULT'].get('email_id')) # 환경 변수 가져오기 (기본값 설정)
+  email_pw = os.getenv("EMAIL_PW", config['DEFAULT'].get('email_pw'))
   recipients = read_recipients_from_file('recipients_list.txt')
   subject = f"{datetime.today().strftime('%Y년 %m월 %d일')}의 뉴스레터"
   send_newsletter(email_id, email_pw, recipients, subject) # 뉴스레터 보내기
